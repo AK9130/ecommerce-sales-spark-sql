@@ -1,0 +1,24 @@
+🙂 docs folder me ye cheezein aayengi:
+
+1️⃣ Project overview
+➡️ Project kya karta hai (E-commerce sales analysis).
+
+2️⃣ Architecture / flow
+➡️ MySQL → Sqoop → Hive → Spark SQL → Output.
+
+3️⃣ Dataset description
+➡️ Tables: customers, orders, order_items, products etc.
+
+4️⃣ Queries explanation
+➡️ Important Spark SQL queries + unka purpose.
+
+5️⃣ Insights / results
+➡️ Example:
+
+Top cities by orders
+
+Most selling categories
+
+Order status analysis
+
+✔️ Ye sab interview me project explain karne me help karta hai.

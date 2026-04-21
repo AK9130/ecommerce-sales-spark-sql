@@ -16,17 +16,33 @@ CSV Files --> MySQL --> Sqoop --> HDFS --> Hive(External Tables) --> Spark SQL -
 - Linux
 
 ## Project Structure
-
-data_sets/    --> CSV files
-mysql/        --> MySQL scripts
-sqoop/        --> Sqoop commands
-hive/         --> Hive scripts
-spark_scripts/--> Spark SQL code
-output/       --> Output results
-docs/         --> Documentation
-README.md
-
-
+```
+.
+├── data_sets
+│   └── E-commerce_transactional
+│       ├── customers.csv
+│       ├── order_items.csv
+│       ├── orders.csv
+│       ├── payments.csv
+│       └── products.csv
+├── docs
+│   ├── architecture_imp.md
+│   ├── architecture_imp.png
+│   └── project_documentation.md
+├── hive
+│   ├── hive_external_tables.hql
+│   └── hive_parquet_tables.hql
+├── mysql
+│   ├── load_data.sql
+│   └── schema.sql
+├── output
+│   └── revenue_by_city.csv
+├── README.md
+├── spark_scripts
+│   └── ecommerce_analysis.py
+└── sqoop
+    └── sqoop_import_all.sh
+```
 ## Steps Performed
 1. Loaded CSV data into MySQL
 2. Imported data from MySQL to HDFS using Sqoop

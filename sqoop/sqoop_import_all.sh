@@ -7,7 +7,7 @@ sqoop import \
 --password zxczx \
 --table customers \
 --as-parquetfile \
---target-dir /user/aaqib/input_projects/2_ecommerce/customers \
+--target-dir /user/aaqib/input_projects/2_ecommerce/customers_parquet \
 -m 1
 
 #products
@@ -17,7 +17,7 @@ sqoop import \
 --password zxczx \
 --table products \
 --as-parquetfile \
---target-dir /user/aaqib/input_projects/2_ecommerce/products \
+--target-dir /user/aaqib/input_projects/2_ecommerce/products_parquet \
 -m 1
 
 #orders
@@ -27,7 +27,7 @@ sqoop import \
 --password zxczx \
 --table orders \
 --as-parquetfile \
---target-dir /user/aaqib/input_projects/2_ecommerce/orders \
+--target-dir /user/aaqib/input_projects/2_ecommerce/orders_parquet \
 -m 1
 
 #order_items
@@ -37,7 +37,7 @@ sqoop import \
 --password zxczx \
 --table order_items \
 --as-parquetfile \
---target-dir /user/aaqib/input_projects/2_ecommerce/order_items \
+--target-dir /user/aaqib/input_projects/2_ecommerce/order_items_parquet \
 -m 1
 
 #payments
@@ -47,7 +47,7 @@ sqoop import \
 --password zxczx \
 --table payments \
 --as-parquetfile \
---target-dir /user/aaqib/input_projects/2_ecommerce/payments \
+--target-dir /user/aaqib/input_projects/2_ecommerce/payments_parquet \
 -m 1
 
 #runs

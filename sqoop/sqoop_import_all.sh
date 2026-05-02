@@ -6,6 +6,7 @@ sqoop import \
 --username root \
 --password zxczx \
 --table customers \
+--as-parquetfile \
 --target-dir /user/aaqib/input_projects/2_ecommerce/customers \
 -m 1
 
@@ -15,6 +16,7 @@ sqoop import \
 --username root \
 --password zxczx \
 --table products \
+--as-parquetfile \
 --target-dir /user/aaqib/input_projects/2_ecommerce/products \
 -m 1
 
@@ -24,6 +26,7 @@ sqoop import \
 --username root \
 --password zxczx \
 --table orders \
+--as-parquetfile \
 --target-dir /user/aaqib/input_projects/2_ecommerce/orders \
 -m 1
 
@@ -33,6 +36,7 @@ sqoop import \
 --username root \
 --password zxczx \
 --table order_items \
+--as-parquetfile \
 --target-dir /user/aaqib/input_projects/2_ecommerce/order_items \
 -m 1
 
@@ -42,6 +46,7 @@ sqoop import \
 --username root \
 --password zxczx \
 --table payments \
+--as-parquetfile \
 --target-dir /user/aaqib/input_projects/2_ecommerce/payments \
 -m 1
 

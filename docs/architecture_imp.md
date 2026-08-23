@@ -1,38 +1,33 @@
 # E-Commerce Sales Data Pipeline Architecture
+This project demonstrates an end-to-end e-commerce data pipeline using MySQL, Sqoop, HDFS, Hive, and Spark SQL.
 
-This project demonstrates an end-to-end Big Data pipeline for analyzing e-commerce sales data.
+## Pipeline Flow
+1. *Raw Data*
+   CSV files: customers, orders, order_items, products, payments
 
-Pipeline Flow:
-
-1. Raw Data (CSV Files)
-   - customers.csv
-   - orders.csv
-   - order_items.csv
-   - products.csv
-   - payments.csv
-
-2. Data Ingestion
+2. *Data Ingestion*
    CSV data is loaded into MySQL using LOAD DATA INFILE.
 
-3. Data Transfer
-   Sqoop is used to import MySQL tables into HDFS.
+3. *Data Transfer*
+   Sqoop imports MySQL tables into HDFS using --as-parquetfile.
 
-4. Data Storage
-   Data is stored in HDFS and accessed through Hive external tables.
+4. *Data Storage*
+   Data is stored as Parquet in HDFS and accessed through Hive External Tables.
 
-5. Data Optimization
-   Hive tables are converted into Parquet format for better performance.
+5. *Data Processing*
+   Spark SQL is used for joins and business analysis.
 
-6. Data Processing
-   Spark SQL is used to perform analytics and business queries.
+6. *Output*
+   Final analysis results are stored in Parquet format in HDFS.
 
-7. Output Generation
-   Processed results are written to HDFS and stored locally in the output folder.
+## Architecture Flow
+CSV → MySQL → Sqoop (--as-parquetfile) → HDFS (Parquet) → Hive External Tables → Spark SQL → Analysis Output
 
-Technologies Used:
-- Hadoop (HDFS)
-- Hive
-- Sqoop
-- MySQL
-- Apache Spark
-- Linux
+## Technologies Used
+* MySQL
+* Sqoop
+* Hadoop HDFS
+* Hive
+* Apache Spark SQL
+* Parquet
+* Linux

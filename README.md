@@ -25,7 +25,7 @@ CSV Files --> MySQL --> Sqoop --> HDFS --> Hive(External Tables) --> Spark SQL -
 │       ├── payments.csv
 │       └── products.csv
 ├── docs
-│   ├── architecture_imp.md
+│   ├── architecture.md
 │   └── project_documentation.md
 ├── hive
 │   ├── derby.log

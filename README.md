@@ -28,7 +28,6 @@ CSV Files --> MySQL --> Sqoop --> HDFS --> Hive(External Tables) --> Spark SQL -
 │   ├── architecture.md
 │   └── project_documentation.md
 ├── hive
-│   ├── derby.log
 │   ├── hive_external_parquet_tables.hql
 │   └── hive_schema_mapping
 ├── mysql

@@ -33,7 +33,7 @@ CSV Files --> MySQL --> Sqoop --> HDFS --> Hive(External Tables) --> Spark SQL -
 │   ├── load_data.sql
 │   └── schema.sql
 ├── output
-│   └── revenue_by_city.csv
+│   └── revenue_by_city.parquet
 ├── README.md
 ├── spark_scripts
 │   └── ecommerce_analysis.py

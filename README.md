@@ -55,7 +55,7 @@ HDFS output path:
 ### Architecture Flow
 CSV → MySQL → Sqoop → HDFS (Parquet) → Hive External Tables → Spark SQL → Output (Parquet)
 
-## 6) Your Role
+## 6) My Role
 I worked on the complete data pipeline, including:
 
 - Created MySQL database schemas.

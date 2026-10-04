@@ -10,10 +10,8 @@ CREATE EXTERNAL TABLE customers (
   customer_city STRING,
   customer_state STRING
 )
-ROW FORMAT DELIMITED
-FIELDS TERMINATED BY ','
-STORED AS TEXTFILE
-LOCATION '/user/aaqib/input_projects/2_ecommerce/customers';
+STORED AS PARQUET
+LOCATION '/user/aaqib/input_projects/2_ecommerce/customers_parquet';
 
 --Products
 CREATE EXTERNAL TABLE products (
@@ -27,10 +25,8 @@ CREATE EXTERNAL TABLE products (
   product_height_cm INT,
   product_width_cm INT
 )
-ROW FORMAT DELIMITED
-FIELDS TERMINATED BY ','
-STORED AS TEXTFILE
-LOCATION '/user/aaqib/input_projects/2_ecommerce/products';
+STORED AS PARQUET
+LOCATION '/user/aaqib/input_projects/2_ecommerce/products_parquet';
 
 --Orders
 CREATE EXTERNAL TABLE orders (
@@ -43,10 +39,8 @@ CREATE EXTERNAL TABLE orders (
   order_delivered_customer_date STRING,
   order_estimated_delivery_date STRING
 )
-ROW FORMAT DELIMITED
-FIELDS TERMINATED BY ','
-STORED AS TEXTFILE
-LOCATION '/user/aaqib/input_projects/2_ecommerce/orders';
+STORED AS PARQUET
+LOCATION '/user/aaqib/input_projects/2_ecommerce/orders_parquet';
 
 --Order_Items
 CREATE EXTERNAL TABLE order_items (
@@ -58,10 +52,8 @@ CREATE EXTERNAL TABLE order_items (
   price DOUBLE,
   freight_value DOUBLE
 )
-ROW FORMAT DELIMITED
-FIELDS TERMINATED BY ','
-STORED AS TEXTFILE
-LOCATION '/user/aaqib/input_projects/2_ecommerce/order_items';
+STORED AS PARQUET
+LOCATION '/user/aaqib/input_projects/2_ecommerce/order_items_parquet';
 
 --Payments
 CREATE EXTERNAL TABLE payments (
@@ -71,10 +63,8 @@ CREATE EXTERNAL TABLE payments (
   payment_installments INT,
   payment_value DOUBLE
 )
-ROW FORMAT DELIMITED
-FIELDS TERMINATED BY ','
-STORED AS TEXTFILE
-LOCATION '/user/aaqib/input_projects/2_ecommerce/payments';
+STORED AS PARQUET
+LOCATION '/user/aaqib/input_projects/2_ecommerce/payments_parquet';
 
 
 --hive -f hive_external_tables.hql

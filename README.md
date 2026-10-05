@@ -16,6 +16,7 @@ The project uses five transactional CSV datasets:
 - `order_items.csv`
 - `products.csv`
 - `payments.csv`
+
 The datasets contain customer information, order details, product information, order items, and payment transactions.
 
 ## 4) Technologies Used

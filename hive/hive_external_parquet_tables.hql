@@ -67,4 +67,4 @@ STORED AS PARQUET
 LOCATION '/user/aaqib/input_projects/2_ecommerce/payments_parquet';
 
 
---hive -f hive_external_tables.hql
+--hive -f hive_external_parquet_tables.hql

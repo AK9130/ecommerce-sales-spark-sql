@@ -11,7 +11,7 @@ CREATE EXTERNAL TABLE customers (
   customer_state STRING
 )
 STORED AS PARQUET
-LOCATION '/user/aaqib/input_projects/2_ecommerce/customers_parquet';
+LOCATION 'hdfs://localhost:9000/user/aaqib/input_projects/2_ecommerce_transactional/customers_parquet';
 
 --Products
 CREATE EXTERNAL TABLE products (
@@ -26,7 +26,7 @@ CREATE EXTERNAL TABLE products (
   product_width_cm INT
 )
 STORED AS PARQUET
-LOCATION '/user/aaqib/input_projects/2_ecommerce/products_parquet';
+LOCATION 'hdfs://localhost:9000/user/aaqib/input_projects/2_ecommerce_transactional/products_parquet';
 
 --Orders
 CREATE EXTERNAL TABLE orders (
@@ -40,7 +40,7 @@ CREATE EXTERNAL TABLE orders (
   order_estimated_delivery_date TIMESTAMP
 )
 STORED AS PARQUET
-LOCATION '/user/aaqib/input_projects/2_ecommerce/orders_parquet';
+LOCATION 'hdfs://localhost:9000/user/aaqib/input_projects/2_ecommerce_transactional/orders_parquet';
 
 --Order_Items
 CREATE EXTERNAL TABLE order_items (
@@ -53,7 +53,7 @@ CREATE EXTERNAL TABLE order_items (
   freight_value DOUBLE
 )
 STORED AS PARQUET
-LOCATION '/user/aaqib/input_projects/2_ecommerce/order_items_parquet';
+LOCATION 'hdfs://localhost:9000/user/aaqib/input_projects/2_ecommerce_transactional/order_items_parquet';
 
 --Payments
 CREATE EXTERNAL TABLE payments (
@@ -64,7 +64,6 @@ CREATE EXTERNAL TABLE payments (
   payment_value DOUBLE
 )
 STORED AS PARQUET
-LOCATION '/user/aaqib/input_projects/2_ecommerce/payments_parquet';
-
+LOCATION 'hdfs://localhost:9000/user/aaqib/input_projects/2_ecommerce_transactional/payments_parquet';
 
 --hive -f hive_external_parquet_tables.hql

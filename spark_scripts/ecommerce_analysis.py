@@ -89,6 +89,6 @@ JOIN payments pay ON o.order_id = pay.order_id
 GROUP BY c.customer_state
 """)
 
-result.write.mode("overwrite").parquet("/user/aaqib/output_projects/2_ecommerce/state_wise_sales")
+result.write.mode("overwrite").parquet("hdfs://localhost:9000/user/aaqib/output_projects/2_ecommerce/state_wise_sales")
 
 spark.stop()

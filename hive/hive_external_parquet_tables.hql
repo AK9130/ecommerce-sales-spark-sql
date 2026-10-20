@@ -33,11 +33,11 @@ CREATE EXTERNAL TABLE orders (
   order_id STRING,
   customer_id STRING,
   order_status STRING,
-  order_purchase_timestamp TIMESTAMP,
-  order_approved_at TIMESTAMP,
-  order_delivered_carrier_date TIMESTAMP,
-  order_delivered_customer_date TIMESTAMP,
-  order_estimated_delivery_date TIMESTAMP
+  order_purchase_timestamp BIGINT,
+  order_approved_at BIGINT,
+  order_delivered_carrier_date BIGINT,
+  order_delivered_customer_date BIGINT,
+  order_estimated_delivery_date BIGINT
 )
 STORED AS PARQUET
 LOCATION 'hdfs://localhost:9000/user/aaqib/input_projects/2_ecommerce_transactional/orders_parquet';

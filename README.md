@@ -107,37 +107,26 @@ I worked on the complete data pipeline, including:
 
 ## 7) Analysis / Results
 The project performs the following analyses:
-
 - Top Product Categories by Sales
+  ![Top Categories](docs/screenshots/01_top_categories.png)
+  
 - State-wise Sales Analysis
+  ![State Wise Sales](docs/screenshots/02_state_wise_sales.png)
+  
 - Payment Type-wise Sales
+  ![Payment Type Sales](docs/screenshots/03_payment_type_sales.png)
+  
 - Top Customers by Spending
+  ![Top Customers](docs/screenshots/04_top_customers.png)
+
 - Monthly Sales Trend
+  ![Monthly Sales](docs/screenshots/05_monthly_sales.png)
+
 - Order Count by State
+  ![Order Count by State](docs/screenshots/06_order_count_by_state.png)
 
 Spark SQL was used to perform joins, aggregations, grouping, sorting, and calculations such as total sales and order counts.
 
-# Category sales use item price; all other analyses use payment value.
-
-### Sample Output
-
-**Top Product Categories**
-![Top Categories](docs/screenshots/01_top_categories.png)
-
-**State-wise Sales**
-![State Wise Sales](docs/screenshots/02_state_wise_sales.png)
-
-**Payment Type-wise Sales**
-![Payment Type Sales](docs/screenshots/03_payment_type_sales.png)
-
-**Top Customers by Spending**
-![Top Customers](docs/screenshots/04_top_customers.png)
-
-**Monthly Sales Trend**
-![Monthly Sales](docs/screenshots/05_monthly_sales.png)
-
-**Order Count by State**
-![Order Count by State](docs/screenshots/06_order_count_by_state.png)
 ## 8) Challenges
 During the project, I faced challenges related to:
 

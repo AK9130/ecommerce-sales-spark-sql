@@ -41,11 +41,11 @@ The imported Parquet files are stored in HDFS under separate directories for eac
 
 Example:
 ```text
-/user/aaqib/input_projects/2_ecommerce_transactional/customers_parquet
-/user/aaqib/input_projects/2_ecommerce_transactional/products_parquet
-/user/aaqib/input_projects/2_ecommerce_transactional/orders_parquet
-/user/aaqib/input_projects/2_ecommerce_transactional/order_items_parquet
-/user/aaqib/input_projects/2_ecommerce_transactional/payments_parquet
+hdfs://localhost:9000/user/aaqib/input_projects/2_ecommerce/customers_parquet
+hdfs://localhost:9000/user/aaqib/input_projects/2_ecommerce/products_parquet
+hdfs://localhost:9000/user/aaqib/input_projects/2_ecommerce/orders_parquet
+hdfs://localhost:9000/user/aaqib/input_projects/2_ecommerce/order_items_parquet
+hdfs://localhost:9000/user/aaqib/input_projects/2_ecommerce/payments_parquet
 ```
 
 ### Step 4: Create Hive External Tables

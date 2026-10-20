@@ -76,7 +76,9 @@ Spark is configured with Hive support, and Spark SQL is used to read the Hive Ex
 The final analysis result is stored in HDFS in Parquet format.
 HDFS output path:
 ```text
-/user/aaqib/output_projects/2_ecommerce_transactional/state_wise_sales
+hdfs://localhost:9000/user/aaqib/output_projects/2_ecommerce_transactional/top_categories_parquet
+hdfs://localhost:9000/user/aaqib/output_projects/2_ecommerce_transactional/state_wise_sales_parquet
+hdfs://localhost:9000/user/aaqib/output_projects/2_ecommerce_transactional/monthly_sales_parquet
 ```
 
 ### Architecture Flow

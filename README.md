@@ -142,26 +142,51 @@ I solved these issues by checking the source data, table schemas, HDFS paths, Hi
 ```text
 .
 ├── data_sets
-│   └── E-commerce_transactional
-│       ├── customers.csv
-│       ├── order_items.csv
-│       ├── orders.csv
-│       ├── payments.csv
-│       └── products.csv
+│   └── E-commerce_transactional
+│       ├── customers.csv
+│       ├── order_items.csv
+│       ├── orders.csv
+│       ├── payments.csv
+│       └── products.csv
 ├── docs
-│   ├── architecture.md
+│   ├── architecture.md
+│   └── screenshots
+│       ├── 01_top_categories.png
+│       ├── 02_state_wise_sales.png
+│       ├── 03_payment_type_sales.png
+│       ├── 04_top_customers.png
+│       ├── 05_monthly_sales.png
+│       └── 06_order_count_by_state.png
 ├── hive
-│   └── hive_external_parquet_tables.hql
+│   └── hive_external_parquet_tables.hql
 ├── mysql
-│   ├── load_data.sql
-│   └── schema.sql
+│   ├── load_data.sql
+│   └── schema.sql
 ├── output
-│   └── state_wise_sales.parquet
+│   ├── monthly_sales__parquet
+│   │   ├── part-00000-a9c5115e-ef2f-4005-90bf-798be5edd4cc-c000.snappy.parquet
+│   │   └── _SUCCESS
+│   ├── monthly_sales_parquet
+│   ├── state_wise_sales
+│   │   ├── part-00000-c45f4874-81d3-4149-bc9e-08621da96fa7-c000.snappy.parquet
+│   │   └── _SUCCESS
+│   ├── state_wise_sales_parquet
+│   │   ├── part-00000-95af1d19-ca8f-4bbd-81ca-5be551b15cd3-c000.snappy.parquet
+│   │   └── _SUCCESS
+│   └── top_categories_parquet
+│       ├── part-00000-676ca369-e70d-43f5-92e5-145a612b16e0-c000.snappy.parquet
+│       └── _SUCCESS
 ├── README.md
 ├── spark_scripts
-│   └── ecommerce_analysis.py
+│   └── ecommerce_analysis.py
 └── sqoop
+    ├── codegen_customers.java
+    ├── codegen_order_items.java
+    ├── codegen_orders.java
+    ├── codegen_payments.java
+    ├── codegen_products.java
     └── sqoop_import_all.sh
+
 ```
 
 ## 10) How to Run

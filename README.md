@@ -41,11 +41,13 @@ The imported Parquet files are stored in HDFS under separate directories for eac
 
 Example:
 ```text
-hdfs://localhost:9000/user/aaqib/input_projects/2_ecommerce_transactional/customers_parquet
-hdfs://localhost:9000/user/aaqib/input_projects/2_ecommerce_transactional/products_parquet
-hdfs://localhost:9000/user/aaqib/input_projects/2_ecommerce_transactional/orders_parquet
-hdfs://localhost:9000/user/aaqib/input_projects/2_ecommerce_transactional/order_items_parquet
-hdfs://localhost:9000/user/aaqib/input_projects/2_ecommerce_transactional/payments_parquet
+Base: hdfs://localhost:9000/user/aaqib/input_projects/2_ecommerce_transactional/
+
+├── customers_parquet
+├── products_parquet
+├── orders_parquet
+├── order_items_parquet
+└── payments_parquet
 ```
 
 ### Step 4: Create Hive External Tables
@@ -76,9 +78,15 @@ Spark is configured with Hive support, and Spark SQL is used to read the Hive Ex
 The final analysis result is stored in HDFS in Parquet format.
 HDFS output path:
 ```text
-hdfs://localhost:9000/user/aaqib/output_projects/2_ecommerce_transactional/top_categories_parquet
-hdfs://localhost:9000/user/aaqib/output_projects/2_ecommerce_transactional/state_wise_sales_parquet
-hdfs://localhost:9000/user/aaqib/output_projects/2_ecommerce_transactional/monthly_sales_parquet
+Base: hdfs://localhost:9000/user/aaqib/output_projects/2_ecommerce_transactional/
+
+├── top_categories_parquet
+├── state_wise_sales_parquet
+├── payment_type_sales_parquet
+├── top_customers_parquet
+├── monthly_sales_parquet
+└── state_wise_orders_parquet
+
 ```
 
 ### Architecture Flow

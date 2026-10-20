@@ -166,9 +166,6 @@ I solved these issues by checking the source data, table schemas, HDFS paths, Hi
 │   ├── monthly_sales__parquet
 │   │   ├── part-00000-a9c5115e-ef2f-4005-90bf-798be5edd4cc-c000.snappy.parquet
 │   │   └── _SUCCESS
-│   ├── state_wise_sales
-│   │   ├── part-00000-c45f4874-81d3-4149-bc9e-08621da96fa7-c000.snappy.parquet
-│   │   └── _SUCCESS
 │   ├── state_wise_sales_parquet
 │   │   ├── part-00000-95af1d19-ca8f-4bbd-81ca-5be551b15cd3-c000.snappy.parquet
 │   │   └── _SUCCESS

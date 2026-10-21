@@ -2,7 +2,15 @@
 
 ## 1. Architecture Overview
 
-CSV → MySQL → Sqoop → HDFS (Parquet) → Hive External Tables → Spark SQL → Output (Parquet)
+```mermaid
+flowchart LR
+    A[CSV Files<br/>5 raw files] --> B[MySQL<br/>Staging DB]
+    B --> C[Sqoop<br/>Bulk import]
+    C --> D[HDFS<br/>Parquet storage]
+    D --> E[Hive<br/>External tables]
+    E --> F[Spark SQL<br/>Joins and analysis]
+    F --> G[Output<br/>Parquet results]
+```
 
 ## 2. Pipeline Stages
 
@@ -39,34 +47,3 @@ Spark SQL reads the Hive External Tables and performs joins, aggregations, group
 ### 7. Output
 
 Final analysis results are stored in HDFS in Parquet format.
-
-## 3. Complete Architecture Flow
-
-```text
-CSV Files
-   ↓
-MySQL
-   ↓
-Sqoop
-   ↓
-HDFS (Parquet)
-   ↓
-Hive External Tables
-   ↓
-Spark SQL
-   ↓
-Analysis Output (Parquet)
-```
-
-### Architecture
-
-```mermaid
-flowchart LR
-    A[CSV Files<br/>5 raw files] --> B[MySQL<br/>Staging DB]
-    B --> C[Sqoop<br/>Bulk import]
-    C --> D[HDFS<br/>Parquet storage]
-    D --> E[Hive<br/>External tables]
-    E --> F[Spark SQL<br/>Joins and analysis]
-    F --> G[Output<br/>Parquet results]
-```
-

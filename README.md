@@ -168,11 +168,13 @@ The project performs the following analyses using Spark SQL joins, aggregations,
 
 ![Top Categories](docs/screenshots/01_top_categories.png)
 
-**Insight:** Health and beauty (`beleza_saude`) is the top category with about 1.26M in sales, followed by watches and gifts (`relogios_presentes`, about 1.21M) and bed, bath and table (`cama_mesa_banho`, about 1.04M).
+**Insight:** Health and beauty (`beleza_saude`) leads with about 1.26M in sales, followed by watches and gifts (about 1.21M) and bed, bath and table (about 1.04M). The top 5 categories each cross 0.9M, and sales are spread across many categories rather than dominated by one.
 
 ### 8.2 State-wise Sales Analysis
 
 ![State Wise Sales](docs/screenshots/02_state_wise_sales.png)
+
+**Insight:** São Paulo (SP) leads with about 6.0M in sales, nearly 2.8x the second-ranked Rio de Janeiro (RJ, about 2.14M) and ahead of RJ and Minas Gerais (MG, about 1.87M) combined. Sales are heavily concentrated in a few southeastern states.
 
 ### 8.3 Payment Type-wise Sales
 

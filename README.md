@@ -132,7 +132,7 @@ Before running the analysis, the following checks were performed using Spark SQL
 
 **Findings:** (yahan apne result likho)
 
-### 8) Analysis / Results
+## 8) Analysis / Results
 The project performs the following analyses:
 - Top Product Categories by Sales
   

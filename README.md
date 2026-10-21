@@ -7,8 +7,6 @@ The complete pipeline is:
 
 ### Architecture
 
-### Architecture
-
 ```mermaid
 flowchart LR
     A[CSV] --> B[MySQL] --> C[Sqoop] --> D[HDFS<br/>Parquet] --> E[Hive<br/>External] --> F[Spark<br/>SQL] --> G[Output<br/>Parquet]

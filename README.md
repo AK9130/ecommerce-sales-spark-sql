@@ -93,17 +93,13 @@ hive -f hive/hive_external_parquet_tables.hql
 Spark is configured with Hive support, and Spark SQL is used to read the Hive External Tables, join the tables, and perform business analysis.
 
 ### Step 6: Store Analysis Output
-The final analysis result is stored in HDFS in Parquet format.
-HDFS output path:
-```text
-Base: hdfs://localhost:9000/user/aaqib/output_projects/2_ecommerce_transactional/
+Three analysis results are stored in HDFS in Parquet format:
 
-├── top_categories_parquet
-├── state_wise_sales_parquet
-├── payment_type_sales_parquet
-├── top_customers_parquet
-├── monthly_sales_parquet
-└── state_wise_orders_parquet
+```text
+
+hdfs://localhost:9000/user/aaqib/output_projects/2_ecommerce_transactional/top_categories_parquet
+hdfs://localhost:9000/user/aaqib/output_projects/2_ecommerce_transactional/state_wise_sales_parquet
+hdfs://localhost:9000/user/aaqib/output_projects/2_ecommerce_transactional/monthly_sales_parquet
 
 ```
 

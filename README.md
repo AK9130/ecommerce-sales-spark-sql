@@ -12,6 +12,14 @@ The complete pipeline is:
 ```mermaid
 flowchart LR
     A[CSV] --> B[MySQL] --> C[Sqoop] --> D[HDFS<br/>Parquet] --> E[Hive<br/>External] --> F[Spark<br/>SQL] --> G[Output<br/>Parquet]
+
+    classDef source fill:#eee,stroke:#888,color:#222
+    classDef storage fill:#e8e6fb,stroke:#534ab7,color:#26215c
+    classDef process fill:#dff5ec,stroke:#0f6e56,color:#04342c
+
+    class A source
+    class B,D,E,G storage
+    class C,F process
 ```
 
 ## 2) Problem Statement

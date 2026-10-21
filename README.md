@@ -119,7 +119,20 @@ I worked on the complete data pipeline, including:
 - Wrote Spark SQL queries for joins and analysis.
 - Generated and stored the final output in Parquet format.
 
-## 7) Analysis / Results
+## 7) Data Quality Checks
+
+Before running the analysis, the following checks were performed using Spark SQL:
+
+- Row count of each table
+- Null value check on key columns (order_id, customer_id)
+- Duplicate check on order_id
+- Orphan record check (order_items without a matching product)
+
+![Data Quality Checks](docs/screenshots/07_data_quality.png)
+
+**Findings:** (yahan apne result likho)
+
+### 8) Analysis / Results
 The project performs the following analyses:
 - Top Product Categories by Sales
   
@@ -147,7 +160,7 @@ The project performs the following analyses:
 
 Spark SQL was used to perform joins, aggregations, grouping, sorting, and calculations such as total sales and order counts.
 
-## 8) Challenges
+## 9) Challenges
 During the project, I faced challenges related to:
 
 - Loading CSV data into MySQL.
@@ -158,7 +171,7 @@ During the project, I faced challenges related to:
 
 I solved these issues by checking the source data, table schemas, HDFS paths, Hive table definitions, and Spark SQL queries step by step.
 
-## 9) Project Structure
+## 10) Project Structure
 ```text
 .
 ├── data_sets
@@ -205,7 +218,7 @@ I solved these issues by checking the source data, table schemas, HDFS paths, Hi
 
 ```
 
-## 10) How to Run
+## 11) How to Run
 ### Create Hive External Tables
 ```bash
 hive -f hive/hive_external_parquet_tables.hql
@@ -216,7 +229,7 @@ hive -f hive/hive_external_parquet_tables.hql
 spark-submit spark_scripts/ecommerce_analysis.py
 ```
 
-## 11) Conclusion
+## 12) Conclusion
 This project demonstrates a complete end-to-end Big Data e-commerce pipeline using MySQL, Sqoop, HDFS, Hive, and Spark SQL.
 The pipeline moves raw transactional data through different stages, stores the data in Parquet format, creates Hive External Tables on the Parquet data, performs multiple business analyses using Spark SQL, and stores the final analysis output in HDFS.
 The project provided practical experience in data ingestion, data transfer, distributed storage, Hive External Tables, Spark SQL processing, and Parquet-based data storage.

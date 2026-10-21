@@ -8,11 +8,11 @@ spark = SparkSession.builder \
 
 spark.sql("USE ecommerce_sales")
 
+spark.sql("CACHE TABLE customers OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
+spark.sql("CACHE TABLE products OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
+spark.sql("CACHE TABLE orders OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
 spark.sql("CACHE TABLE order_items OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
-spark.sql("CACHE TABLE order_items OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
-spark.sql("CACHE TABLE order_items OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
-spark.sql("CACHE TABLE order_items OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
-spark.sql("CACHE TABLE order_items OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
+spark.sql("CACHE TABLE payments OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
 
 # ---------- DATA QUALITY CHECKS ----------
 print("===== DATA QUALITY CHECKS =====")

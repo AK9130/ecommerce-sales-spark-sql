@@ -5,6 +5,23 @@ The complete pipeline is:
 
 **CSV → MySQL → Sqoop → HDFS (Parquet) → Hive External Tables → Spark SQL → Output (Parquet)**
 
+### Architecture
+
+```mermaid
+flowchart TB
+    subgraph Ingest
+        A[CSV Files] --> B[MySQL] --> C[Sqoop]
+    end
+    subgraph Storage
+        D[HDFS Parquet] --> E[Hive External Tables]
+    end
+    subgraph Process
+        F[Spark SQL] --> G[Output Parquet]
+    end
+    C --> D
+    E --> F
+```
+
 ## 2) Problem Statement
 The objective of this project is to build an end-to-end data pipeline for e-commerce transactional data and perform business-oriented sales analysis.
 The pipeline takes raw CSV data, loads it into MySQL, transfers the data to HDFS using Sqoop in Parquet format, creates Hive External Tables on the Parquet data, and uses Spark SQL for joins and analysis.

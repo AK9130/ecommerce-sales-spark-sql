@@ -33,6 +33,10 @@ The project uses five transactional CSV datasets:
 
 The datasets contain customer information, order details, product information, order items, and payment transactions.
 
+**Note:** Raw CSV files are not included in this repository due to size.
+The dataset is the public Olist Brazilian E-Commerce dataset (available on Kaggle).
+Final output is stored in HDFS at `/user/aaqib/output_projects/2_ecommerce/state_wise_sales`.
+
 ## 4) Technologies Used
 - Linux
 - MySQL

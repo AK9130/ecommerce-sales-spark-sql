@@ -180,9 +180,13 @@ The project performs the following analyses using Spark SQL joins, aggregations,
 
 ![Payment Type Sales](docs/screenshots/03_payment_type_sales.png)
 
+**Insight:** Credit card dominates with about 12.54M in sales (roughly 78% of total payment value), followed by boleto (bank slip) at about 2.87M (roughly 18%). Voucher and debit card together make up under 4%.
+
 ### 8.4 Top Customers by Spending
 
 ![Top Customers](docs/screenshots/04_top_customers.png)
+
+**Insight:** The top customer spent about 13.7K, around 1.4x the second-highest (about 9.6K). The top 10 customers range from about 4.8K to 13.7K, so no single customer dominates overall revenue.
 
 ### 8.5 Monthly Sales Trend
 

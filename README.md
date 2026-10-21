@@ -173,6 +173,7 @@ I solved these issues by checking the source data, table schemas, HDFS paths, Hi
 
 ## 10) Project Structure
 ```text
+
 .
 ├── data_sets
 │   └── E-commerce_transactional
@@ -189,7 +190,8 @@ I solved these issues by checking the source data, table schemas, HDFS paths, Hi
 │       ├── 03_payment_type_sales.png
 │       ├── 04_top_customers.png
 │       ├── 05_monthly_sales.png
-│       └── 06_order_count_by_state.png
+│       ├── 06_order_count_by_state.png
+│       └── 07_data_quality.png
 ├── hive
 │   └── hive_external_parquet_tables.hql
 ├── mysql
@@ -209,11 +211,6 @@ I solved these issues by checking the source data, table schemas, HDFS paths, Hi
 ├── spark_scripts
 │   └── ecommerce_analysis.py
 └── sqoop
-    ├── codegen_customers.java
-    ├── codegen_order_items.java
-    ├── codegen_orders.java
-    ├── codegen_payments.java
-    ├── codegen_products.java
     └── sqoop_import_all.sh
 
 ```

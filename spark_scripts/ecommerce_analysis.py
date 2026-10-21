@@ -7,6 +7,13 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 spark.sql("USE ecommerce_sales")
+
+spark.sql("CACHE TABLE customers")
+spark.sql("CACHE TABLE products")
+spark.sql("CACHE TABLE orders")
+spark.sql("CACHE TABLE order_items")
+spark.sql("CACHE TABLE payments")
+
 # ---------- DATA QUALITY CHECKS ----------
 print("===== DATA QUALITY CHECKS =====")
 
@@ -127,5 +134,8 @@ df_state_orders.show()
 df_categories.write.mode("overwrite").parquet("hdfs://localhost:9000/user/aaqib/output_projects/2_ecommerce_transactional/top_categories_parquet")
 df_state_sales.write.mode("overwrite").parquet("hdfs://localhost:9000/user/aaqib/output_projects/2_ecommerce_transactional/state_wise_sales_parquet")
 df_monthly.write.mode("overwrite").parquet("hdfs://localhost:9000/user/aaqib/output_projects/2_ecommerce_transactional/monthly_sales_parquet")
+
+spark.sql("CLEAR CACHE")
+
 
 spark.stop()

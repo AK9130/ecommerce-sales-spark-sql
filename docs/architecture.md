@@ -57,3 +57,16 @@ Spark SQL
    ↓
 Analysis Output (Parquet)
 ```
+
+### Architecture
+
+```mermaid
+flowchart LR
+    A[CSV Files<br/>5 raw files] --> B[MySQL<br/>Staging DB]
+    B --> C[Sqoop<br/>Bulk import]
+    C --> D[HDFS<br/>Parquet storage]
+    D --> E[Hive<br/>External tables]
+    E --> F[Spark SQL<br/>Joins and analysis]
+    F --> G[Output<br/>Parquet results]
+```
+

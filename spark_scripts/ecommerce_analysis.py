@@ -110,14 +110,14 @@ df_customers.show()
 
 # Analysis 5 - Monthly Sales Trend
 df_monthly = spark.sql("""
-SELECT DATE_FORMAT(CAST(o.order_purchase_timestamp AS TIMESTAMP), 'yyyy-MM') AS month,
+SELECT DATE_FORMAT(CAST(o.order_purchase_timestamp / 1000 AS TIMESTAMP), 'yyyy-MM') AS month,
 ROUND(SUM(pay.payment_value),2) AS total_sales
 FROM orders o
 JOIN payments pay ON o.order_id = pay.order_id
-GROUP BY DATE_FORMAT(CAST(o.order_purchase_timestamp AS TIMESTAMP), 'yyyy-MM')
+GROUP BY DATE_FORMAT(CAST(o.order_purchase_timestamp / 1000 AS TIMESTAMP), 'yyyy-MM')
 ORDER BY month
 """)
-df_monthly.show()
+df_monthly.show(30)
 
 # Analysis 6 - Order Count by State
 df_state_orders = spark.sql("""

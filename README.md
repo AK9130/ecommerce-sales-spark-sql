@@ -7,19 +7,11 @@ The complete pipeline is:
 
 ### Architecture
 
+### Architecture
+
 ```mermaid
-flowchart TB
-    subgraph Ingest
-        A[CSV Files] --> B[MySQL] --> C[Sqoop]
-    end
-    subgraph Storage
-        D[HDFS Parquet] --> E[Hive External Tables]
-    end
-    subgraph Process
-        F[Spark SQL] --> G[Output Parquet]
-    end
-    C --> D
-    E --> F
+flowchart LR
+    A[CSV] --> B[MySQL] --> C[Sqoop] --> D[HDFS<br/>Parquet] --> E[Hive<br/>External] --> F[Spark<br/>SQL] --> G[Output<br/>Parquet]
 ```
 
 ## 2) Problem Statement

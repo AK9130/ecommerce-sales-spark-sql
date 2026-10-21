@@ -7,6 +7,51 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 spark.sql("USE ecommerce_sales")
+# ---------- DATA QUALITY CHECKS ----------
+print("===== DATA QUALITY CHECKS =====")
+
+# 1) Row count of each table
+df_counts = spark.sql("""
+SELECT 'customers' AS table_name, COUNT(*) AS row_count FROM customers
+UNION ALL
+SELECT 'products', COUNT(*) FROM products
+UNION ALL
+SELECT 'orders', COUNT(*) FROM orders
+UNION ALL
+SELECT 'order_items', COUNT(*) FROM order_items
+UNION ALL
+SELECT 'payments', COUNT(*) FROM payments
+""")
+df_counts.show()
+
+# 2) Null check in orders
+df_nulls = spark.sql("""
+SELECT
+  SUM(CASE WHEN order_id IS NULL THEN 1 ELSE 0 END) AS null_order_id,
+  SUM(CASE WHEN customer_id IS NULL THEN 1 ELSE 0 END) AS null_customer_id
+FROM orders
+""")
+df_nulls.show()
+
+# 3) Duplicate order_id check
+df_dup = spark.sql("""
+SELECT COUNT(*) - COUNT(DISTINCT order_id) AS duplicate_orders
+FROM orders
+""")
+df_dup.show()
+
+# 4) Orphan check (order_items with no matching product)
+df_orphan = spark.sql("""
+SELECT COUNT(*) AS orphan_items
+FROM order_items oi
+LEFT JOIN products p ON oi.product_id = p.product_id
+WHERE p.product_id IS NULL
+""")
+df_orphan.show()
+
+print("===== DATA QUALITY CHECKS DONE =====")
+# ---------- END CHECKS ----------
+
 
 # Analysis 1 - Top Product Categories
 df_categories = spark.sql("""

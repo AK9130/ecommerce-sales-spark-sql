@@ -19,7 +19,6 @@ flowchart LR
     class B,D,E,G storage
     class C,F process
 ```
-
 ## 2) Problem Statement
 The objective of this project is to build an end-to-end data pipeline for e-commerce transactional data and perform business-oriented sales analysis.
 The pipeline takes raw CSV data, loads it into MySQL, transfers the data to HDFS using Sqoop in Parquet format, creates Hive External Tables on the Parquet data, and uses Spark SQL for joins and analysis.

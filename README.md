@@ -6,7 +6,7 @@ This project demonstrates an end-to-end e-commerce Big Data pipeline where trans
 
 The complete pipeline is:
 
-**CSV → MySQL → Sqoop → HDFS (Parquet) → Hive External Tables → Spark SQL → Output (Parquet)**
+**CSV --> MySQL --> Sqoop --> Hadoop HDFS --> Hive External Tables --> Spark SQL --> Output (Parquet)**
 
 ### Architecture
 

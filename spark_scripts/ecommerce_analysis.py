@@ -6,6 +6,7 @@ spark = SparkSession.builder \
     .enableHiveSupport() \
     .getOrCreate()
 
+# Use Hive_db
 spark.sql("USE ecommerce_sales")
 
 # Cache all 5 tables

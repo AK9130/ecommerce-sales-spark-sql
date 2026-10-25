@@ -8,15 +8,15 @@ spark = SparkSession.builder \
 
 spark.sql("USE ecommerce_sales")
 
+# Cache all 5 tables
+spark.sql("CACHE TABLE customers OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
+spark.sql("CACHE TABLE products OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
+spark.sql("CACHE TABLE orders OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
 spark.sql("CACHE TABLE order_items OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
-spark.sql("CACHE TABLE order_items OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
-spark.sql("CACHE TABLE order_items OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
-spark.sql("CACHE TABLE order_items OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
-spark.sql("CACHE TABLE order_items OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
+spark.sql("CACHE TABLE payments OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
 
 ## Data Quality Checks
-# ---------- DATA QUALITY CHECKS ----------
-print("===== DATA QUALITY CHECKS =====")
+print("...DATA QUALITY CHECKS...")
 
 # 1) Row count of each table
 df_counts = spark.sql("""
@@ -57,8 +57,7 @@ WHERE p.product_id IS NULL
 """)
 df_orphan.show()
 
-print("===== DATA QUALITY CHECKS DONE =====")
-# ---------- END CHECKS ----------
+print("DATA QUALITY CHECKS DONE")
 
 # Analysis 1 - Top Product Categories
 df_categories = spark.sql("""

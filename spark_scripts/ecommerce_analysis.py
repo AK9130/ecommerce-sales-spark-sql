@@ -1,6 +1,6 @@
 from pyspark.sql import SparkSession
 
-# Spark Session
+## Spark Session
 spark = SparkSession.builder \
     .appName("EcommerceAnalysis") \
     .enableHiveSupport() \
@@ -8,12 +8,13 @@ spark = SparkSession.builder \
 
 spark.sql("USE ecommerce_sales")
 
-spark.sql("CACHE TABLE customers OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
-spark.sql("CACHE TABLE products OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
-spark.sql("CACHE TABLE orders OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
 spark.sql("CACHE TABLE order_items OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
-spark.sql("CACHE TABLE payments OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
+spark.sql("CACHE TABLE order_items OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
+spark.sql("CACHE TABLE order_items OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
+spark.sql("CACHE TABLE order_items OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
+spark.sql("CACHE TABLE order_items OPTIONS ('storageLevel' 'MEMORY_AND_DISK')")
 
+## Data Quality Checks
 # ---------- DATA QUALITY CHECKS ----------
 print("===== DATA QUALITY CHECKS =====")
 
@@ -59,11 +60,10 @@ df_orphan.show()
 print("===== DATA QUALITY CHECKS DONE =====")
 # ---------- END CHECKS ----------
 
-
 # Analysis 1 - Top Product Categories
 df_categories = spark.sql("""
 SELECT p.product_category_name,
-ROUND(SUM(oi.price),2) AS total_sales
+       ROUND(SUM(oi.price),2) AS total_sales
 FROM order_items oi
 JOIN products p ON oi.product_id = p.product_id
 WHERE p.product_category_name IS NOT NULL
@@ -76,7 +76,7 @@ df_categories.show()
 # Analysis 2 - State Wise Sales
 df_state_sales = spark.sql("""
 SELECT c.customer_state,
-ROUND(SUM(pay.payment_value),2) AS total_sales
+       ROUND(SUM(pay.payment_value),2) AS total_sales
 FROM orders o
 JOIN customers c ON o.customer_id = c.customer_id
 JOIN payments pay ON o.order_id = pay.order_id
@@ -88,7 +88,7 @@ df_state_sales.show()
 # Analysis 3 - Payment Type Wise Sales
 df_payments = spark.sql("""
 SELECT payment_type,
-ROUND(SUM(payment_value),2) AS total_sales
+       ROUND(SUM(payment_value),2) AS total_sales
 FROM payments
 GROUP BY payment_type
 ORDER BY total_sales DESC
@@ -98,7 +98,7 @@ df_payments.show()
 # Analysis 4 - Top Customers by Spending
 df_customers = spark.sql("""
 SELECT c.customer_unique_id,
-ROUND(SUM(pay.payment_value),2) AS total_spent
+       ROUND(SUM(pay.payment_value),2) AS total_spent
 FROM orders o
 JOIN customers c ON o.customer_id = c.customer_id
 JOIN payments pay ON o.order_id = pay.order_id
@@ -110,19 +110,21 @@ df_customers.show()
 
 # Analysis 5 - Monthly Sales Trend
 df_monthly = spark.sql("""
-SELECT DATE_FORMAT(CAST(o.order_purchase_timestamp / 1000 AS TIMESTAMP), 'yyyy-MM') AS month,
-ROUND(SUM(pay.payment_value),2) AS total_sales
+SELECT DATE_FORMAT(from_unixtime(o.order_purchase_timestamp / 1000),'yyyy-MM') AS month,
+       ROUND(SUM(pay.payment_value), 2) AS total_sales
 FROM orders o
-JOIN payments pay ON o.order_id = pay.order_id
-GROUP BY DATE_FORMAT(CAST(o.order_purchase_timestamp / 1000 AS TIMESTAMP), 'yyyy-MM')
+JOIN payments pay
+ON o.order_id = pay.order_id
+GROUP BY DATE_FORMAT(from_unixtime(o.order_purchase_timestamp / 1000),'yyyy-MM')
 ORDER BY month
 """)
+
 df_monthly.show(30)
 
 # Analysis 6 - Order Count by State
 df_state_orders = spark.sql("""
 SELECT c.customer_state,
-COUNT(DISTINCT o.order_id) AS total_orders
+       COUNT(DISTINCT o.order_id) AS total_orders
 FROM orders o
 JOIN customers c ON o.customer_id = c.customer_id
 GROUP BY c.customer_state
@@ -136,6 +138,5 @@ df_state_sales.write.mode("overwrite").parquet("hdfs://localhost:9000/user/aaqib
 df_monthly.write.mode("overwrite").parquet("hdfs://localhost:9000/user/aaqib/output_projects/2_ecommerce_transactional/monthly_sales_parquet")
 
 spark.sql("CLEAR CACHE")
-
 
 spark.stop()

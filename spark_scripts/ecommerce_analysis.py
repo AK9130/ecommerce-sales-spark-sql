@@ -44,8 +44,10 @@ df_nulls.show()
 
 # 3) Duplicate order_id check
 df_dup = spark.sql("""
-SELECT COUNT(*) - COUNT(DISTINCT order_id) AS duplicate_orders
+SELECT order_id, COUNT(*) AS count
 FROM orders
+GROUP BY order_id
+HAVING COUNT(*) > 1;
 """)
 df_dup.show()
 

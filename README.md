@@ -192,8 +192,7 @@ The project performs the following analyses using Spark SQL joins, aggregations,
 
 ![Monthly Sales](docs/screenshots/05_monthly_sales.png)
 
-**Insight:** Monthly sales grew steadily from about 138K in January 2017 to over 1.1M by early 2018. The peak month is November 2017 (about 1.19M), likely driven by seasonal shopping such as Black Friday. Sales then stayed around 1.0M to 1.16M per month through mid-2018. The 2016 months and September to October 2018 are very low because the dataset has only partial data for those periods.
-
+**Insight:** Monthly sales grew steadily from about **138K** in January 2017 to over **1.1M** by early 2018. The peak month was **November 2017**, with about **1.19M** in sales, likely influenced by seasonal shopping such as Black Friday. Sales then remained around **1.0M–1.16M** per month through mid-2018. The 2016 months and September to October 2018 show very low sales because the dataset contains only partial data for those periods.
 ### 8.6 Order Count by State
 
 ![Order Count by State](docs/screenshots/06_order_count_by_state.png)

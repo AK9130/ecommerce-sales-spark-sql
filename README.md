@@ -168,7 +168,7 @@ The project performs the following analyses using Spark SQL joins, aggregations,
 
 ![Top Categories](docs/screenshots/01_top_categories.png)
 
-**Insight:** Health and beauty (`beleza_saude`) leads with about 1.26M in sales, followed by watches and gifts (about 1.21M) and bed, bath and table (about 1.04M). The top 5 categories each cross 0.9M, and sales are spread across many categories rather than dominated by one.
+**Insight:** **Insight:** Health and beauty (`beleza_saude`) generates the highest sales at approximately **1.26M**, followed by watches and gifts (`relogios_presentes`) at **1.21M** and bed, bath and table (`cama_mesa_banho`) at **1.04M**. The top 5 categories each generate close to or above **0.9M** in sales, showing that sales are distributed across multiple product categories rather than being dominated by a single category.
 
 ### 8.2 State-wise Sales Analysis
 

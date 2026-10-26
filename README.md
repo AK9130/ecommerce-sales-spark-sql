@@ -208,7 +208,7 @@ During the project, I faced challenges related to:
 - Hive schema and data-type compatibility.
 - Managing data movement between MySQL, HDFS, Hive, and Spark.
 - Managing Hive External Tables and their HDFS locations.
-- Timestamp conversion: Sqoop stored date columns as `bigint` (epoch milliseconds) in Parquet, which gave wrong dates (like year 48647) in the monthly trend. Fixed by dividing by 1000 before casting to `TIMESTAMP`.
+- Timestamp conversion: Sqoop stored date columns as `bigint` (epoch milliseconds) in Parquet, which gave wrong dates (like year 48647) in the monthly trend. Fixed by dividing by 1000 before using `from_unixtime` to `DATE_FORMAT`.
 
 I solved these issues by checking the source data, table schemas, HDFS paths, Hive table definitions, and Spark SQL queries step by step.
 

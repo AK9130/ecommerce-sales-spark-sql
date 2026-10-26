@@ -174,7 +174,7 @@ The project performs the following analyses using Spark SQL joins, aggregations,
 
 ![State Wise Sales](docs/screenshots/02_state_wise_sales.png)
 
-**Insight:** Sao Paulo ('SP') leads with about **6.0M** in sales, nearly **2.8×** the second-ranked Rio de Janeiro ('RJ') at **2.14M**. Sao Paulo ('SP'), Rio de Janeiro ('RJ'), and Minas Gerais ('MG') together generate about **10.0M** in sales, showing that sales are strongly concentrated in a few southern and southeastern states.
+**Insight:** Sao Paulo ('SP') leads with about **6.0M** in sales, nearly **2.8×** the second-ranked Rio de Janeiro ('RJ') at **2.14M**. Sao Paulo ('SP'), Rio de Janeiro ('RJ'), and Minas Gerais ('MG') together generate about **10.0M** in sales, showing that sales are strongly concentrated in a few states, especially SP, RJ, and MG.
 
 ### 8.3 Payment Type-wise Sales
 

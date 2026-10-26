@@ -66,8 +66,9 @@ print("DATA QUALITY CHECKS DONE")
 df_categories = spark.sql("""
 SELECT p.product_category_name,
     ROUND(SUM(oi.price),2) AS total_sales
-FROM order_items oi
-JOIN products p ON oi.product_id = p.product_id
+FROM order_items as oi
+JOIN products as p 
+ON oi.product_id = p.product_id
 WHERE p.product_category_name IS NOT NULL
 GROUP BY p.product_category_name
 ORDER BY total_sales DESC

@@ -54,8 +54,9 @@ df_dup.show()
 # 4) Orphan check (order_items with no matching product)
 df_orphan = spark.sql("""
 SELECT COUNT(*) AS orphan_items
-FROM order_items oi
-LEFT JOIN products p ON oi.product_id = p.product_id
+FROM order_items as oi
+LEFT JOIN products as p 
+ON oi.product_id = p.product_id
 WHERE p.product_id IS NULL
 """)
 df_orphan.show()
@@ -80,9 +81,11 @@ df_categories.show()
 df_state_sales = spark.sql("""
 SELECT c.customer_state,
     ROUND(SUM(pay.payment_value),2) AS total_sales
-FROM orders o
-JOIN customers c ON o.customer_id = c.customer_id
-JOIN payments pay ON o.order_id = pay.order_id
+FROM orders as o
+JOIN customers as c 
+ON o.customer_id = c.customer_id
+JOIN payments as pay 
+ON o.order_id = pay.order_id
 GROUP BY c.customer_state
 ORDER BY total_sales DESC
 """)
@@ -102,9 +105,11 @@ df_payments.show()
 df_customers = spark.sql("""
 SELECT c.customer_unique_id,
     ROUND(SUM(pay.payment_value),2) AS total_spent
-FROM orders o
-JOIN customers c ON o.customer_id = c.customer_id
-JOIN payments pay ON o.order_id = pay.order_id
+FROM orders as o
+JOIN customers as c 
+ON o.customer_id = c.customer_id
+JOIN payments as pay 
+ON o.order_id = pay.order_id
 GROUP BY c.customer_unique_id
 ORDER BY total_spent DESC
 LIMIT 10
@@ -115,8 +120,8 @@ df_customers.show()
 df_monthly = spark.sql("""
 SELECT DATE_FORMAT(from_unixtime(o.order_purchase_timestamp / 1000),'yyyy-MM') AS month,
     ROUND(SUM(pay.payment_value), 2) AS total_sales
-FROM orders o
-JOIN payments pay
+FROM orders as o
+JOIN payments as pay
 ON o.order_id = pay.order_id
 GROUP BY DATE_FORMAT(from_unixtime(o.order_purchase_timestamp / 1000),'yyyy-MM')
 ORDER BY month
@@ -128,8 +133,9 @@ df_monthly.show(30)
 df_state_orders = spark.sql("""
 SELECT c.customer_state,
     COUNT(DISTINCT o.order_id) AS total_orders
-FROM orders o
-JOIN customers c ON o.customer_id = c.customer_id
+FROM orders as o
+JOIN customers as c 
+ON o.customer_id = c.customer_id
 GROUP BY c.customer_state
 ORDER BY total_orders DESC
 """)

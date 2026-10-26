@@ -21,7 +21,7 @@ print("...DATA QUALITY CHECKS...")
 
 # 1) Row count of each table
 df_counts = spark.sql("""
-SELECT 'customers' AS table_name, COUNT(*) AS row_count FROM customers
+SELECT 'customers' as table_name, COUNT(*) as row_count FROM customers
 UNION ALL
 SELECT 'products', COUNT(*) FROM products
 UNION ALL
@@ -36,15 +36,15 @@ df_counts.show()
 # 2) Null check in orders
 df_nulls = spark.sql("""
 SELECT
-  SUM(CASE WHEN order_id IS NULL THEN 1 ELSE 0 END) AS null_order_id,
-  SUM(CASE WHEN customer_id IS NULL THEN 1 ELSE 0 END) AS null_customer_id
+  SUM(CASE WHEN order_id IS NULL THEN 1 ELSE 0 END) as null_order_id,
+  SUM(CASE WHEN customer_id IS NULL THEN 1 ELSE 0 END) as null_customer_id
 FROM orders
 """)
 df_nulls.show()
 
 # 3) Duplicate order_id check
 df_dup = spark.sql("""
-SELECT order_id, COUNT(*) AS count
+SELECT order_id, COUNT(*) as count
 FROM orders
 GROUP BY order_id
 HAVING COUNT(*) > 1;
@@ -53,7 +53,7 @@ df_dup.show()
 
 # 4) Orphan check (order_items with no matching product)
 df_orphan = spark.sql("""
-SELECT COUNT(*) AS orphan_items
+SELECT COUNT(*) as orphan_items
 FROM order_items as oi
 LEFT JOIN products as p 
 ON oi.product_id = p.product_id
@@ -66,7 +66,7 @@ print("DATA QUALITY CHECKS DONE")
 # Analysis 1 - Top Product Categories
 df_categories = spark.sql("""
 SELECT p.product_category_name,
-    ROUND(SUM(oi.price),2) AS total_sales
+    ROUND(SUM(oi.price),2) as total_sales
 FROM order_items as oi
 JOIN products as p 
 ON oi.product_id = p.product_id
@@ -80,7 +80,7 @@ df_categories.show()
 # Analysis 2 - State Wise Sales
 df_state_sales = spark.sql("""
 SELECT c.customer_state,
-    ROUND(SUM(pay.payment_value),2) AS total_sales
+    ROUND(SUM(pay.payment_value),2) as total_sales
 FROM orders as o
 JOIN customers as c 
 ON o.customer_id = c.customer_id
@@ -94,7 +94,7 @@ df_state_sales.show()
 # Analysis 3 - Payment Type Wise Sales
 df_payments = spark.sql("""
 SELECT payment_type,
-    ROUND(SUM(payment_value),2) AS total_sales
+    ROUND(SUM(payment_value),2) as total_sales
 FROM payments
 GROUP BY payment_type
 ORDER BY total_sales DESC
@@ -104,7 +104,7 @@ df_payments.show()
 # Analysis 4 - Top Customers by Spending
 df_customers = spark.sql("""
 SELECT c.customer_unique_id,
-    ROUND(SUM(pay.payment_value),2) AS total_spent
+    ROUND(SUM(pay.payment_value),2) as total_spent
 FROM orders as o
 JOIN customers as c 
 ON o.customer_id = c.customer_id
@@ -118,8 +118,8 @@ df_customers.show()
 
 # Analysis 5 - Monthly Sales Trend
 df_monthly = spark.sql("""
-SELECT DATE_FORMAT(from_unixtime(o.order_purchase_timestamp / 1000),'yyyy-MM') AS month,
-    ROUND(SUM(pay.payment_value), 2) AS total_sales
+SELECT DATE_FORMAT(from_unixtime(o.order_purchase_timestamp / 1000),'yyyy-MM') as month,
+    ROUND(SUM(pay.payment_value), 2) as total_sales
 FROM orders as o
 JOIN payments as pay
 ON o.order_id = pay.order_id
@@ -132,7 +132,7 @@ df_monthly.show(30)
 # Analysis 6 - Order Count by State
 df_state_orders = spark.sql("""
 SELECT c.customer_state,
-    COUNT(DISTINCT o.order_id) AS total_orders
+    COUNT(DISTINCT o.order_id) as total_orders
 FROM orders as o
 JOIN customers as c 
 ON o.customer_id = c.customer_id

@@ -197,7 +197,7 @@ The project performs the following analyses using Spark SQL joins, aggregations,
 
 ![Order Count by State](docs/screenshots/06_order_count_by_state.png)
 
-**Insight:** São Paulo (SP) has the most orders by far with 41,746, about 42% of all 99,441 orders and roughly 3.2x Rio de Janeiro (RJ, 12,852). Minas Gerais (MG) is third with 11,635. This matches the state-wise sales result, where SP also leads in revenue.
+**Insight:** São Paulo (`SP`) has the most orders by far, with **41,746** orders, about **42%** of all **99,441** orders and roughly **3.2×** Rio de Janeiro (`RJ`), with **12,852**. Minas Gerais (`MG`) is third with **11,635** orders. This matches the state-wise sales results, where `SP` also leads in revenue.
 
 ## 9) Challenges
 
